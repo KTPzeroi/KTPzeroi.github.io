@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Request</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-purple-100">
+    <div class="text-center">
+        <h1 id="message" class="text-4xl md:text-6xl font-bold mb-6 text-pink-700">Could you be my Valentine?</h1>
+        
+        <div id="button-group" class="flex justify-center gap-4">
+            <button id="yes-button" class="btn btn-primary text-white text-lg px-6 py-2 hover:bg-blue-500 active:bg-blue-700">Yes</button>
+            <button id="no-button" class="btn btn-error text-white text-lg px-6 py-2 hover:bg-red-500 active:bg-red-700">No</button>
+        </div>
+        
+        <div class="mt-6">
+            <img id="gif-image" src="https://media1.tenor.com/m/9wQObEwsuY8AAAAC/chiikawa-cute.gif" alt="Phase GIF" class="mx-auto" style="width: 300px; height: auto;" />
+        </div>
+    </div>
+
+    <script>
+        const phases = [
+            "Please ;-;", 
+            "I'm gonna cry rn", 
+            "If u say no, I'm gonna be sad ", 
+            "I'm gonna cry rn", 
+            "please please please"
+        ];
+        const gifs = [
+            "https://media1.tenor.com/m/BPVM2xECVBQAAAAC/please.gif", 
+            "https://media.tenor.com/pECqfK0xuYYAAAAi/tkthao219-capoo.gif", 
+            "https://media1.tenor.com/m/t81QT9rl9vgAAAAC/chiikawa-scared.gif", 
+            "https://media1.tenor.com/m/V_z072YdErsAAAAC/rat-cry-mouse-cutie.gif", 
+            "https://media1.tenor.com/m/wruJgI16LxMAAAAC/doge-shiba.gif"
+        ];
+
+        let phaseIndex = -1;
+        const noButton = document.getElementById("no-button");
+        const yesButton = document.getElementById("yes-button");
+        const message = document.getElementById("message");
+        const gifImage = document.getElementById("gif-image");
+        const buttonGroup = document.getElementById("button-group");
+
+        noButton.addEventListener("click", () => {
+            phaseIndex = (phaseIndex + 1) % phases.length;
+            noButton.textContent = phases[phaseIndex];
+            gifImage.src = gifs[phaseIndex];
+        });
+
+        yesButton.addEventListener("click", () => {
+            message.textContent = "Yay! Now you’ve been mine.";
+            gifImage.src = "https://media.tenor.com/q7wJoLu-DWcAAAAi/chikawa.gif";
+            buttonGroup.style.display = "none";
+        });
+    </script>
+</body>
+</html>
